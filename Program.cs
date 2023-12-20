@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Net.Sockets;
 
 namespace CoreCollectionsAsync
 {
@@ -105,7 +106,17 @@ namespace CoreCollectionsAsync
 
         static void Main(string[] args)
         {
-            DemoAsync().Wait();
+
+            //for (int i = 1; i <= 20; i++)
+            //{
+            //    ElectricCar Coolcar = new ElectricCar(i);
+            //    Thread Start = new Thread(Coolcar.StartEngine);
+            //    Start.Start();
+            //    Coolcar.OnCarShutDown += CarDead;
+            //}
+            Slowwrite("YOU ARE GOING TO HAVE BAD TIME");
+
+            //DemoAsync().Wait();
             //1. Prepare Omlette with no progress bar
             //DelegateAndEventsDemo.RunDemo_1();
 
@@ -129,6 +140,19 @@ namespace CoreCollectionsAsync
 
             //8. Solution of events and threads exercise
             //EventsExercise.Start2();
+        }
+            public static void Slowwrite(string str)
+         {
+            for(int i = 0;i < str.Length; i++)
+            {
+                Console.Write(str[i]);
+                Thread.Sleep(10);
+            }
+         }
+
+        public static void CarDead()
+        {
+            Console.WriteLine("your car is dead! it is coolcar  ");
         }
 
 
