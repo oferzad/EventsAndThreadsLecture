@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace CoreCollectionsAsync
+namespace LOLOLםך
 {
     public class Battery
     {
@@ -41,9 +41,9 @@ namespace CoreCollectionsAsync
                     ShutDown();
             }
             else if (Capacity <= Threshold)
-                    if (ReachThreshold != null)
-                        ReachThreshold();
-            
+                if (ReachThreshold != null)
+                    ReachThreshold();
+
             #endregion
         }
 
@@ -56,7 +56,7 @@ namespace CoreCollectionsAsync
 
         //Add event to notify when the car is shut down
         public event Action OnCarShutDown;
-        
+
         public ElectricCar(int id)
         {
             this.id = id;
@@ -75,7 +75,7 @@ namespace CoreCollectionsAsync
                 Bat.Usage();
             }
         }
-        
+
         //Add code to Define and implement the battery event implementations
         #region events implementation
         private void Bat_ShutDown()
@@ -95,7 +95,7 @@ namespace CoreCollectionsAsync
         {
             return $"Car: {id}";
         }
-       
+
     }
     class EventsExercise
     {
@@ -104,12 +104,12 @@ namespace CoreCollectionsAsync
             ElectricCar ec = new ElectricCar(1);
             ec.StartEngine();
         }
-        
+
         public static void Start2()
         {
             Console.WriteLine($"Start! Thread: {Thread.CurrentThread.ManagedThreadId}");
             Task[] tArr = new Task[20];
-            ElectricCar [] ecArr = new ElectricCar[20];
+            ElectricCar[] ecArr = new ElectricCar[20];
             for (int i = 0; i < ecArr.Length; i++)
             {
                 ecArr[i] = new ElectricCar(i);
